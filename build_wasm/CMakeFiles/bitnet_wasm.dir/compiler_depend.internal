@@ -3,6 +3,9 @@
 
 CMakeFiles/bitnet_wasm.dir/src/bitnet_wasm.cpp.o
  /Users/josh/Work/BitNet/src/bitnet_wasm.cpp
+ /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/include/ggml-alloc.h
+ /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/include/ggml-backend.h
+ /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/include/ggml.h
  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/alloca.h
  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/assert.h
  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h
@@ -651,4 +654,5 @@ CMakeFiles/bitnet_wasm.dir/src/bitnet_wasm.cpp.o
  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stdbool.h
  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stddef.h
  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stdint.h
+ /Users/josh/Work/BitNet/include/ggml-bitnet.h
 

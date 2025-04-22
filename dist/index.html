@@ -25,6 +25,7 @@
             border-radius: 4px;
             cursor: pointer;
             margin-right: 10px;
+            margin-bottom: 10px;
         }
         button:hover {
             background-color: #45a049;
@@ -32,19 +33,70 @@
         #output {
             margin-top: 20px;
         }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+        .input-container, .output-container {
+            margin-top: 20px;
+        }
+        .loading {
+            color: #888;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
     <h1>BitNet WebAssembly Demo</h1>
     <p>This page demonstrates the BitNet library compiled to WebAssembly.</p>
-    
+
     <div>
         <button id="version-btn">Get Version</button>
         <button id="type-bits-btn">Get Type Bits</button>
     </div>
-    
+
+    <div class="input-container">
+        <h3>Input Text:</h3>
+        <textarea id="input-text" rows="5" placeholder="Enter your text here..."></textarea>
+        <div>
+            <button id="process-btn">Process Text</button>
+            <button id="clear-btn">Clear</button>
+        </div>
+    </div>
+
+    <div class="output-container">
+        <h3>Processed Output:</h3>
+        <pre id="processed-output">// Processed text will appear here</pre>
+    </div>
+
+    <div class="input-container">
+        <h3>Matrix Multiplication Demo:</h3>
+        <div>
+            <label for="matrix-rows">Rows:</label>
+            <input type="number" id="matrix-rows" value="2" min="1" max="10" style="width: 60px; margin-right: 10px;">
+
+            <label for="matrix-cols">Columns:</label>
+            <input type="number" id="matrix-cols" value="3" min="1" max="10" style="width: 60px;">
+        </div>
+        <textarea id="matrix-input" rows="5" placeholder="Enter matrix values (comma-separated numbers)..."></textarea>
+        <div>
+            <button id="matrix-multiply-btn">Multiply with BitNet</button>
+            <button id="matrix-clear-btn">Clear</button>
+        </div>
+    </div>
+
+    <div class="output-container">
+        <h3>Matrix Multiplication Result:</h3>
+        <pre id="matrix-output">// Matrix multiplication result will appear here</pre>
+    </div>
+
     <div id="output">
-        <h3>Output:</h3>
+        <h3>Status:</h3>
         <pre id="result">// Results will appear here</pre>
     </div>
 
@@ -53,6 +105,12 @@
 
         let bitnet = null;
         let resultElement = document.getElementById('result');
+        let inputTextElement = document.getElementById('input-text');
+        let processedOutputElement = document.getElementById('processed-output');
+        let matrixInputElement = document.getElementById('matrix-input');
+        let matrixOutputElement = document.getElementById('matrix-output');
+        let matrixRowsElement = document.getElementById('matrix-rows');
+        let matrixColsElement = document.getElementById('matrix-cols');
 
         // Initialize the module
         BitNetModule().then(module => {
@@ -69,13 +127,33 @@
             console.error(error);
         });
 
+        // Process text function
+        function processText(text) {
+            if (!text.trim()) {
+                return "Please enter some text to process.";
+            }
+
+            // Get stats about the text
+            const words = text.split(/\s+/);
+            const wordCount = words.length;
+            const charCount = text.length;
+
+            // Use the C++ processText method from BitNet
+            const processedText = bitnet.processText(text);
+
+            return `Processed Text:\n${processedText}\n\nStats:\n- Word count: ${wordCount}\n- Character count: ${charCount}\n- Bits per type: ${JSON.stringify({
+                "GGML_TYPE_TL1": bitnet.getTypeBits(16),
+                "GGML_TYPE_Q4_0": bitnet.getTypeBits(2)
+            }, null, 2)}`;
+        }
+
         // Button event listeners
         document.getElementById('version-btn').addEventListener('click', () => {
             if (!bitnet) {
                 resultElement.textContent = "BitNet module not loaded yet.";
                 return;
             }
-            
+
             try {
                 const version = bitnet.getVersion();
                 resultElement.textContent = `Version: ${version}`;
@@ -90,7 +168,7 @@
                 resultElement.textContent = "BitNet module not loaded yet.";
                 return;
             }
-            
+
             try {
                 // Get bits for different types
                 const typeBits = {
@@ -103,6 +181,123 @@
                 console.error(error);
             }
         });
+
+        document.getElementById('process-btn').addEventListener('click', () => {
+            if (!bitnet) {
+                resultElement.textContent = "BitNet module not loaded yet.";
+                return;
+            }
+
+            try {
+                const inputText = inputTextElement.value;
+                resultElement.textContent = "Processing...";
+
+                // Simulate async processing
+                setTimeout(() => {
+                    const output = processText(inputText);
+                    processedOutputElement.textContent = output;
+                    resultElement.textContent = "Text processed successfully!";
+                }, 500);
+            } catch (error) {
+                resultElement.textContent = "Error processing text: " + error.message;
+                processedOutputElement.textContent = "An error occurred during processing.";
+                console.error(error);
+            }
+        });
+
+        document.getElementById('clear-btn').addEventListener('click', () => {
+            inputTextElement.value = "";
+            processedOutputElement.textContent = "// Processed text will appear here";
+            resultElement.textContent = "Input cleared.";
+        });
+
+        // Matrix multiplication function
+        function performMatrixMultiplication(inputStr, rows, cols) {
+            if (!inputStr.trim()) {
+                return "Please enter matrix values.";
+            }
+
+            try {
+                // Parse input string to array of floats
+                const values = inputStr.split(/[,\s]+/).map(val => parseFloat(val.trim())).filter(val => !isNaN(val));
+
+                // Check if we have enough values
+                if (values.length !== rows * cols) {
+                    return `Error: Expected ${rows * cols} values for a ${rows}x${cols} matrix, but got ${values.length}.`;
+                }
+
+                // Perform matrix multiplication using BitNet
+                const result = bitnet.matrixMultiply(values, rows, cols);
+
+                // Format the result for display
+                const outFeatures = result.length / rows;
+                let formattedResult = `Input Matrix (${rows}x${cols}):\n`;
+
+                // Format input matrix
+                for (let i = 0; i < rows; i++) {
+                    formattedResult += "[ ";
+                    for (let j = 0; j < cols; j++) {
+                        formattedResult += values[i * cols + j].toFixed(2) + " ";
+                    }
+                    formattedResult += "]\n";
+                }
+
+                formattedResult += `\nOutput Matrix (${rows}x${outFeatures}) after BitNet Quantized Multiplication:\n`;
+
+                // Format output matrix
+                for (let i = 0; i < rows; i++) {
+                    formattedResult += "[ ";
+                    for (let j = 0; j < outFeatures; j++) {
+                        formattedResult += result[i * outFeatures + j].toFixed(2) + " ";
+                    }
+                    formattedResult += "]\n";
+                }
+
+                formattedResult += "\nNote: BitNet uses 2-bit quantization for weights in matrix multiplication.";
+
+                return formattedResult;
+            } catch (error) {
+                console.error(error);
+                return "Error: " + error.message;
+            }
+        }
+
+        // Matrix multiplication button event listener
+        document.getElementById('matrix-multiply-btn').addEventListener('click', () => {
+            if (!bitnet) {
+                resultElement.textContent = "BitNet module not loaded yet.";
+                return;
+            }
+
+            try {
+                const inputStr = matrixInputElement.value;
+                const rows = parseInt(matrixRowsElement.value);
+                const cols = parseInt(matrixColsElement.value);
+
+                resultElement.textContent = "Performing matrix multiplication...";
+
+                // Simulate async processing
+                setTimeout(() => {
+                    const output = performMatrixMultiplication(inputStr, rows, cols);
+                    matrixOutputElement.textContent = output;
+                    resultElement.textContent = "Matrix multiplication completed successfully!";
+                }, 500);
+            } catch (error) {
+                resultElement.textContent = "Error performing matrix multiplication: " + error.message;
+                matrixOutputElement.textContent = "An error occurred during matrix multiplication.";
+                console.error(error);
+            }
+        });
+
+        // Matrix clear button event listener
+        document.getElementById('matrix-clear-btn').addEventListener('click', () => {
+            matrixInputElement.value = "";
+            matrixOutputElement.textContent = "// Matrix multiplication result will appear here";
+            resultElement.textContent = "Matrix input cleared.";
+        });
+
+        // Add sample data button
+        document.getElementById('matrix-input').placeholder = "Example: 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 for a 2x3 matrix";
     </script>
 </body>
 </html>
