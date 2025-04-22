@@ -647,4 +647,56 @@ CMakeFiles/bitnet_wasm.dir/src/bitnet_wasm.cpp.o: \
   /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
   /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
   /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/val.h \
-  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/wire.h
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/wire.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/random \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/bernoulli_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/uniform_real_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/generate_canonical.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/binomial_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/cauchy_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/chi_squared_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/gamma_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/exponential_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/default_random_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/linear_congruential_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/is_seed_sequence.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/discard_block_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/discrete_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/numeric \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/accumulate.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/adjacent_difference.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/inner_product.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/iota.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/partial_sum.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/exclusive_scan.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/gcd_lcm.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/inclusive_scan.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/pstl.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/reduce.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/transform_exclusive_scan.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/transform_inclusive_scan.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__numeric/transform_reduce.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/execution \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_execution_policy.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/extreme_value_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/fisher_f_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/geometric_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/negative_binomial_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/poisson_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/clamp_to_integral.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/normal_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/independent_bits_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/knuth_b.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/shuffle_order_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/lognormal_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/mersenne_twister_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/piecewise_constant_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/piecewise_linear_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/random_device.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/ranlux.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/subtract_with_carry_engine.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/seed_seq.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/student_t_distribution.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/uniform_random_bit_generator.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__random/weibull_distribution.h \
+  /Users/josh/Work/BitNet/src/bitnet_llm.cpp

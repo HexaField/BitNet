@@ -6,6 +6,11 @@
 #include <cmath>
 #include <algorithm>
 #include <stdexcept>
+#include <map>
+#include <random>
+
+// Include the LLM implementation
+#include "bitnet_llm.cpp"
 
 // Simulate BitNet types and functions
 enum ggml_type {
@@ -47,6 +52,9 @@ public:
         // Initialize BitNet
         sim_ggml_bitnet_init();
         initialized = true;
+
+        // Initialize LLM
+        llm = new LLM();
     }
 
     ~BitNetWasm() {
@@ -54,6 +62,12 @@ public:
         if (initialized) {
             sim_ggml_bitnet_free();
             initialized = false;
+        }
+
+        // Clean up LLM
+        if (llm) {
+            delete llm;
+            llm = nullptr;
         }
     }
 
@@ -175,9 +189,29 @@ public:
         return output;
     }
 
+    // Generate text using the LLM
+    std::string generateText(const std::string& prompt, int max_tokens = 50) {
+        if (!llm) {
+            return "LLM not initialized";
+        }
+
+        return llm->generate(prompt, max_tokens);
+    }
+
+    // Get model information
+    std::string getModelInfo() {
+        return "BitNet LLM Model\n"
+               "- Architecture: BitNet\n"
+               "- Quantization: 2-bit\n"
+               "- Context Size: 512 tokens\n"
+               "- Vocabulary Size: 33 tokens\n"
+               "- Running in: WebAssembly";
+    }
+
 private:
     int n_threads = 1;
     bool initialized = false;
+    LLM* llm = nullptr;
 };
 
 // Binding code
@@ -190,5 +224,7 @@ EMSCRIPTEN_BINDINGS(bitnet_module) {
         .function("setNumThreads", &BitNetWasm::setNumThreads)
         .function("getVersion", &BitNetWasm::getVersion)
         .function("processText", &BitNetWasm::processText)
-        .function("matrixMultiply", &BitNetWasm::matrixMultiply);
+        .function("matrixMultiply", &BitNetWasm::matrixMultiply)
+        .function("generateText", &BitNetWasm::generateText)
+        .function("getModelInfo", &BitNetWasm::getModelInfo);
 }

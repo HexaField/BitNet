@@ -46,3 +46,4 @@ build/
 logs/
 
 bitnet-cli/node_modules
+node_modules
