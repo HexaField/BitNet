@@ -337,21 +337,16 @@
                 statusElement.textContent = "Model loaded successfully!";
 
                 // Update model info
-                try {
-                    const modelInfo = await wllama.getModelInfo();
-                    const infoText = [
-                        `Model: ${modelInfo.name || 'Unknown'}`,
-                        `Type: GGUF`,
-                        `Parameters: ${modelInfo.params ? `${(modelInfo.params / 1000000).toFixed(2)}M` : 'Unknown'}`,
-                        `Quantization: ${modelInfo.quantization || 'Unknown'}`,
-                        `Context Length: ${modelInfo.contextLength || 'Unknown'}`
-                    ].join('\n');
+                // The getModelInfo method is not available in the wllama library
+                // So we'll display basic information about the loaded model
+                const modelName = modelUrl.split('/').pop() || 'Unknown';
+                const infoText = [
+                    `Model: ${modelName}`,
+                    `Type: GGUF`,
+                    `Source: ${modelUrl}`
+                ].join('\n');
 
-                    modelInfoElement.textContent = infoText;
-                } catch (e) {
-                    console.warn('Could not get detailed model info:', e);
-                    modelInfoElement.textContent = `Model loaded successfully, but could not retrieve detailed information.`;
-                }
+                modelInfoElement.textContent = infoText;
 
                 // Enable chat input
                 chatInputElement.disabled = false;
