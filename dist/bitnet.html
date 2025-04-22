@@ -236,7 +236,12 @@
     <script type="module">
         // Import the wllama library from CDN
         import { Wllama } from 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.1/esm/index.js';
-        import WasmFromCDN from 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.1/esm/wasm-from-cdn.js';
+
+        // Define the WASM paths directly since the CDN doesn't have wasm-from-cdn.js
+        const WasmFromCDN = {
+            'single-thread/wllama.wasm': 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.1/esm/single-thread/wllama.wasm',
+            'multi-thread/wllama.wasm': 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.1/esm/multi-thread/wllama.wasm'
+        };
 
         // Model URLs
         const MODEL_URLS = {
@@ -291,7 +296,7 @@
                 loadModelButton.disabled = true;
                 modelSelect.disabled = true;
                 customUrlInput.disabled = true;
-                
+
                 // Show progress container
                 progressContainer.style.display = 'block';
                 progressBar.style.width = '0%';
@@ -327,10 +332,10 @@
                 await wllama.loadModelFromUrl(modelUrl, {
                     progressCallback: progressCallback,
                 });
-                
+
                 modelLoaded = true;
                 statusElement.textContent = "Model loaded successfully!";
-                
+
                 // Update model info
                 try {
                     const modelInfo = await wllama.getModelInfo();
@@ -341,17 +346,17 @@
                         `Quantization: ${modelInfo.quantization || 'Unknown'}`,
                         `Context Length: ${modelInfo.contextLength || 'Unknown'}`
                     ].join('\n');
-                    
+
                     modelInfoElement.textContent = infoText;
                 } catch (e) {
                     console.warn('Could not get detailed model info:', e);
                     modelInfoElement.textContent = `Model loaded successfully, but could not retrieve detailed information.`;
                 }
-                
+
                 // Enable chat input
                 chatInputElement.disabled = false;
                 sendButton.disabled = false;
-                
+
                 // Add welcome message
                 addBotMessage("Hello! I'm a language model running in your browser using WebAssembly. How can I help you today?");
             } catch (error) {
@@ -375,14 +380,14 @@
 
             try {
                 statusElement.textContent = "Generating text...";
-                
+
                 // Add a "thinking" message
                 thinkingElement = document.createElement('div');
                 thinkingElement.classList.add('message', 'bot-message', 'thinking');
                 thinkingElement.textContent = "Thinking...";
                 chatMessagesElement.appendChild(thinkingElement);
                 chatMessagesElement.scrollTop = chatMessagesElement.scrollHeight;
-                
+
                 // Generate text
                 const response = await wllama.createCompletion(prompt, {
                     nPredict: 256,
@@ -392,13 +397,13 @@
                         top_p: 0.9,
                     },
                 });
-                
+
                 // Remove the thinking message
                 if (thinkingElement && thinkingElement.parentNode) {
                     chatMessagesElement.removeChild(thinkingElement);
                     thinkingElement = null;
                 }
-                
+
                 statusElement.textContent = "Text generated successfully!";
                 return response;
             } catch (error) {
@@ -407,7 +412,7 @@
                     chatMessagesElement.removeChild(thinkingElement);
                     thinkingElement = null;
                 }
-                
+
                 statusElement.textContent = "Error generating text: " + error.message;
                 console.error(error);
                 return null;
