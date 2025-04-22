@@ -44,3 +44,5 @@ poetry.toml
 
 build/
 logs/
+
+bitnet-cli/node_modules

@@ -1,0 +1,2 @@
+/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emar qc libggml.a CMakeFiles/ggml.dir/ggml.c.o "CMakeFiles/ggml.dir/ggml-alloc.c.o" "CMakeFiles/ggml.dir/ggml-backend.cpp.o" "CMakeFiles/ggml.dir/ggml-quants.c.o" "CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-mad.cpp.o" "CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-lut.cpp.o" "CMakeFiles/ggml.dir/ggml-aarch64.c.o"
+/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emranlib libggml.a

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitNet WebAssembly Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BitNet WebAssembly Demo</h1>
+    <p>This page demonstrates the BitNet library compiled to WebAssembly.</p>
+    
+    <div>
+        <button id="version-btn">Get Version</button>
+        <button id="type-bits-btn">Get Type Bits</button>
+    </div>
+    
+    <div id="output">
+        <h3>Output:</h3>
+        <pre id="result">// Results will appear here</pre>
+    </div>
+
+    <script type="module">
+        import BitNetModule from './bitnet_wasm.js';
+
+        let bitnet = null;
+        let resultElement = document.getElementById('result');
+
+        // Initialize the module
+        BitNetModule().then(module => {
+            try {
+                // Create an instance of the BitNet class
+                bitnet = new module.BitNet();
+                resultElement.textContent = "BitNet WebAssembly module loaded successfully!";
+            } catch (error) {
+                resultElement.textContent = "Error initializing BitNet: " + error.message;
+                console.error(error);
+            }
+        }).catch(error => {
+            resultElement.textContent = "Error loading BitNet module: " + error.message;
+            console.error(error);
+        });
+
+        // Button event listeners
+        document.getElementById('version-btn').addEventListener('click', () => {
+            if (!bitnet) {
+                resultElement.textContent = "BitNet module not loaded yet.";
+                return;
+            }
+            
+            try {
+                const version = bitnet.getVersion();
+                resultElement.textContent = `Version: ${version}`;
+            } catch (error) {
+                resultElement.textContent = "Error getting version: " + error.message;
+                console.error(error);
+            }
+        });
+
+        document.getElementById('type-bits-btn').addEventListener('click', () => {
+            if (!bitnet) {
+                resultElement.textContent = "BitNet module not loaded yet.";
+                return;
+            }
+            
+            try {
+                // Get bits for different types
+                const typeBits = {
+                    "GGML_TYPE_TL1": bitnet.getTypeBits(16), // Assuming GGML_TYPE_TL1 is 16
+                    "GGML_TYPE_Q4_0": bitnet.getTypeBits(2)  // Assuming GGML_TYPE_Q4_0 is 2
+                };
+                resultElement.textContent = JSON.stringify(typeBits, null, 2);
+            } catch (error) {
+                resultElement.textContent = "Error getting type bits: " + error.message;
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>

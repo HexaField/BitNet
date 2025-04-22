@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.14)
+project("bitnet-wasm" C CXX)
+
+# Set Emscripten-specific options
+set(CMAKE_EXECUTABLE_SUFFIX ".js")
+
+# Include directories
+include_directories(include)
+include_directories(3rdparty/llama.cpp/ggml/include)
+include_directories(3rdparty/llama.cpp/ggml/src)
+
+# Set compiler flags for WebAssembly
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORT_NAME=BitNetModule --bind")
+
+# Add source files
+set(SOURCES
+    src/bitnet_wasm.cpp
+)
+
+# Create the WebAssembly module
+add_executable(bitnet_wasm ${SOURCES})
+
+# Set output properties
+set_target_properties(bitnet_wasm PROPERTIES
+    LINK_FLAGS "-s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORT_NAME=BitNetModule --bind"
+)

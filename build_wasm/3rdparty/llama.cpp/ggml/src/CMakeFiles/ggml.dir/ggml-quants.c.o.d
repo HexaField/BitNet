@@ -1,0 +1,35 @@
+3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-quants.c.o: \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-quants.c \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-common.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stdint.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-quants.h \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/include/ggml.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stdbool.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/stddef.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/stddef.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_header_macro.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_ptrdiff_t.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_size_t.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_wchar_t.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_null.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_max_align_t.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/__stddef_offsetof.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/stdio.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-impl.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/stdlib.h \
+  /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-cpu-impl.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/math.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/wasm_simd128.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/lib/clang/21/include/float.h \
+  /Users/josh/Work/BitNet/emsdk/upstream/emscripten/cache/sysroot/include/float.h

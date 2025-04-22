@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emcc -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -msimd128 -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wdouble-promotion -o CMakeFiles/ggml.dir/ggml.c.o -c /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml.c",
+  "file": "/Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml.c",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml.c.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emcc -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -msimd128 -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wdouble-promotion -o CMakeFiles/ggml.dir/ggml-alloc.c.o -c /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-alloc.c",
+  "file": "/Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-alloc.c",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-alloc.c.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/em++ -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_CXX.rsp  -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORT_NAME=BitNetModule -O3 -DNDEBUG -std=gnu++11 -msimd128 -Wmissing-declarations -Wmissing-noreturn -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wmissing-prototypes -Wextra-semi -o CMakeFiles/ggml.dir/ggml-backend.cpp.o -c /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-backend.cpp",
+  "file": "/Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-backend.cpp",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-backend.cpp.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emcc -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -msimd128 -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wdouble-promotion -o CMakeFiles/ggml.dir/ggml-quants.c.o -c /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-quants.c",
+  "file": "/Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-quants.c",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-quants.c.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/em++ -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_CXX.rsp  -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORT_NAME=BitNetModule -O3 -DNDEBUG -std=gnu++11 -msimd128 -Wmissing-declarations -Wmissing-noreturn -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wmissing-prototypes -Wextra-semi -o CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-mad.cpp.o -c /Users/josh/Work/BitNet/src/ggml-bitnet-mad.cpp",
+  "file": "/Users/josh/Work/BitNet/src/ggml-bitnet-mad.cpp",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-mad.cpp.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/em++ -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_CXX.rsp  -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORT_NAME=BitNetModule -O3 -DNDEBUG -std=gnu++11 -msimd128 -Wmissing-declarations -Wmissing-noreturn -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wmissing-prototypes -Wextra-semi -o CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-lut.cpp.o -c /Users/josh/Work/BitNet/src/ggml-bitnet-lut.cpp",
+  "file": "/Users/josh/Work/BitNet/src/ggml-bitnet-lut.cpp",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/__/__/__/__/src/ggml-bitnet-lut.cpp.o"
+},
+{
+  "directory": "/Users/josh/Work/BitNet/build_wasm/3rdparty/llama.cpp/ggml/src",
+  "command": "/Users/josh/Work/BitNet/emsdk/upstream/emscripten/emcc -DGGML_SCHED_MAX_COPIES=4 -D_XOPEN_SOURCE=600 @CMakeFiles/ggml.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -msimd128 -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function -Wunreachable-code-break -Wunreachable-code-return -Wdouble-promotion -o CMakeFiles/ggml.dir/ggml-aarch64.c.o -c /Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-aarch64.c",
+  "file": "/Users/josh/Work/BitNet/3rdparty/llama.cpp/ggml/src/ggml-aarch64.c",
+  "output": "3rdparty/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-aarch64.c.o"
+}
+]

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/josh/Work/BitNet/build_wasm/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
